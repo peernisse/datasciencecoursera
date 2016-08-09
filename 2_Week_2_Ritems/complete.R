@@ -37,8 +37,8 @@ files<-list.files("specdata",full.names=TRUE)
 files<-files[1]
 data<-read.csv(files)
 data<-subset(data,complete.cases(data))
-ID<-as.data.frame(unique(data$ID)
-nobs<-as.data.frame(length(data$ID))
+ID<-unique(data$ID)
+nobs<-length(data$ID)
 
 
 data<-do.call(rbind,lapply(files,read.csv))

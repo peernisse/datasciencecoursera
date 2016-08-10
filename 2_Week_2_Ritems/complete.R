@@ -12,12 +12,12 @@ complete<-function(directory,id){
         foo#Does not appear to retain the order of the IDs, the lapply sorts them
 }
 
-complete("specdata",30:25)
+complete("specdata",332:1)
 
 #####Method 2#####
 setwd("C:/Coursera/Repos/datasciencecoursera/2_Week_2_Ritems")
 complete2<-function(directory,id){
-        output<-data.frame(ID=character(),nobs=character())
+        output<-data.frame(ID=character(),nobs=numeric())
         for (i in id){
                 
                 files<-list.files(directory,full.names=TRUE)
@@ -27,9 +27,9 @@ complete2<-function(directory,id){
                 ID<-unique(data$ID)
                 nobs<-length(data$ID)
                 out<-cbind(ID,nobs)
-                output<-rbind(output,out)
+                output<-rbind(output,out,deparse.level = 0)
                 }
         output#This retains the order ofthe ids
 }
 
-complete2("specdata",30:25)
+complete2("specdata",1:299)

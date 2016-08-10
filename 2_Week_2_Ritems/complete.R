@@ -12,7 +12,7 @@ complete<-function(directory,id){
         foo#Does not appear to retain the order of the IDs, the lapply sorts them
 }
 
-complete("specdata",30:25)
+complete("specdata",1:332)
 
 #####Method 2#####
 setwd("C:/Coursera/Repos/datasciencecoursera/2_Week_2_Ritems")
@@ -32,4 +32,4 @@ complete2<-function(directory,id){
         output#This retains the order ofthe ids
 }
 
-complete2("specdata",30:25)
+complete2("specdata",1:300)

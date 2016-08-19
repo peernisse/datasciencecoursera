@@ -89,10 +89,110 @@ interaction(f1,f2)
 #error
 #condition
 
+#Warning Example
+log(-1)
+#[1] NaN
+#Warning message:
+#In log(-1) : NaNs produced
+
+printmessage<-function(x){
+    if(x>0)
+      print("x is greater than zero")
+    else
+      print("x is less than or equal to zero")
+    invisible(x)#a command that revents autoprinting of function result
+}
+
+printmessage(1)
+printmessage(NA)
+#Error in if (x > 0) print("x is greater than zero") else print("x is less than or equal to zero") : 
+#missing value where TRUE/FALSE needed
+
+printmessage2<-function(x) {
+        
+        if(is.na(x))
+                print("x is a missig value!")
+                
+        else if(x>0)
+                print("x is greater than zero")
+        else
+                print("x is less than or equal to zero")
+        invisible(x)
+}
+
+x<-log(-1)
+printmessage2(x)
 
 
+#####Debugging Tools#####
+#Traceback
+#Browser
+#Trace
+#Recover
+
+#####Using Debugging Tools#####
+#traceback()
+rm(x)
+mean(x)
+traceback()
+
+lm(y~x)
+traceback()
+
+#debug()
+debug(lm)
+lm(y~x)
+#use the n to step through the debugger pane
+
+#recover()
+options(error=recover)#for this session, launch recover on any error
+
+read.csv("nosuchfile")
 
 
+#####Module 2 Week 3 Quiz#####
+library(datasets)
+data(iris)
+?iris
+sl<-subset(iris,Species=="virginica")
+mean(sl$Sepal.Length)
+
+#2
+colMeans(iris)
+no2<-apply(iris[,1:4],2,mean)
+no2
+is.vector(no2)
+
+library(datasets)
+data(mtcars)
+?mtcars
+mtcars
+#my code
+xxx<-lapply(split(mtcars$mpg,mtcars$cyl),mean)
+xxx
+#3 Trying answers
+split(mtcars,mtcars$cyl)#No
+tapply(mtcars$mpg,mtcars$cyl,mean)#yes
+tapply(mtcars$cyl,mtcars$mpg,mean)#no
+with(mtcars,tapply(mpg,cyl,mean))#yes
+sapply(mtcars,cyl,mean)#no
+sapply(split(mtcars$mpg,mtcars$cyl),mean)#yes
+lapply(mtcars,mean)#no
+mean(mtcars$mpg,mtcars$cyl)#no
+apply(mtcars,2,mean)#no
+
+#4
+sapply(split(mtcars$hp,mtcars$cyl),mean)#yes
+val<-209.21429-82.63636
+val
+
+
+debug(ls)
+ls()
+
+
+#####Module 2 Week 3 Programming assignment#####
+See R File
 
 
 
